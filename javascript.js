@@ -1,6 +1,6 @@
 function loadDataRR(url, id){
   var result = null;
-  var origin = 'http://allorigins.me/get?url=' +
+  var origin = 'https://allorigins.me/get?url=' +
   encodeURIComponent(url) +
   'callback=?';
   $.get(origin, function(response){
