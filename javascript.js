@@ -1,3 +1,13 @@
+// For todays date;
+Date.prototype.today = function () {
+    return ((this.getDate() < 10)?"0":"") + this.getDate() +"/"+(((this.getMonth()+1) < 10)?"0":"") + (this.getMonth()+1) +"/"+ this.getFullYear();
+}
+
+// For the time now
+Date.prototype.timeNow = function () {
+     return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
+}
+
 function loadDataRR(url, id){
   var result = null;
   var origin = 'https://allorigins.me/get?url=' +
@@ -16,9 +26,15 @@ function updateField(id,content){
   document.getElementById(id).innerHTML = content;
 }
 
-function initializeCheck(){
-  loadDataRR('http://royalroadl.com/fiction/8894/everybody-loves-large-chests', 'ELLC');
-  loadDataRR('http://royalroadl.com/fiction/5701/savage-divinity', 'SD');
+function getDateTime(){
+  var currentDateTime = new Date;
+  return 'Last Check: ' + currentDateTime.today() + ' @ ' + currentDateTime.timeNow();
 }
 
-window.onload = initializeCheck();
+function checkUpdates(){
+  loadDataRR('http://royalroadl.com/fiction/8894/everybody-loves-large-chests', 'ELLC');
+  loadDataRR('http://royalroadl.com/fiction/5701/savage-divinity', 'SD');
+  updateField('lastTime',getDateTime());
+}
+
+window.onload = checkUpdates();
