@@ -8,6 +8,19 @@ Date.prototype.timeNow = function () {
      return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
 }
 
+function loadDataTZK(url, id){
+  var origin = 'https://allorigins.me/get?url=' +
+  encodeURIComponent(url) +
+  'callback=?';
+  $.get(origin, function(response){
+    var array = response.contents.match(/Page [0-9]+/g);
+    console.log(response.contents);
+    //var num = array.length;
+    //var lastUpdate = array[num - 1].match(/[0-9]{1,2}\/[0-9]{1,2}\/[0-9]{1,4}/)[0];
+    //updateChapterField(id,num,lastUpdate);
+  });
+}
+
 function loadDataRR(url, id){
   var origin = 'https://allorigins.me/get?url=' +
   encodeURIComponent(url) +
@@ -75,6 +88,7 @@ function getDateTime(){
 function checkUpdates(){
   loadDataRR('http://royalroadl.com/fiction/8894/everybody-loves-large-chests', 'ELLC');
   loadDataRR('http://royalroadl.com/fiction/5701/savage-divinity', 'SD');
+  loadDataRR('https://royalroadl.com/fiction/15925/the-daily-grind', 'TDG');
   loadDataAO3('http://archiveofourown.org/works/11478249/chapters/25740126','WTC');
   //updateDateField('lastTime',getDateTime());
 }
