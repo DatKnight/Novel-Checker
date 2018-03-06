@@ -29,6 +29,7 @@ function loadDataRR(url, id){
     var array = response.contents.match(/[0-9]{1,2}\/[0-9]{1,2}\/[0-9]{1,4}\<\/time> ago/g);
     var num = array.length;
     var lastUpdate = array[num - 1].match(/[0-9]{1,2}\/[0-9]{1,2}\/[0-9]{1,4}/)[0];
+    console.log(array)
     updateChapterField(id,num,lastUpdate);
   });
 }
@@ -89,6 +90,7 @@ function checkUpdates(){
   loadDataRR('http://royalroadl.com/fiction/8894/everybody-loves-large-chests', 'ELLC');
   loadDataRR('http://royalroadl.com/fiction/5701/savage-divinity', 'SD');
   loadDataRR('https://royalroadl.com/fiction/15925/the-daily-grind', 'TDG');
+  loadDataRR('https://royalroadl.com/fiction/11209/the-legend-of-randidly-ghosthound', 'RG');
   loadDataAO3('http://archiveofourown.org/works/11478249/chapters/25740126','WTC');
   //updateDateField('lastTime',getDateTime());
 }
