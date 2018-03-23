@@ -91,6 +91,7 @@ function checkUpdates(){
   loadDataRR('http://royalroadl.com/fiction/5701/savage-divinity', 'SD');
   loadDataRR('https://royalroadl.com/fiction/15925/the-daily-grind', 'TDG');
   loadDataRR('https://royalroadl.com/fiction/11209/the-legend-of-randidly-ghosthound', 'RG');
+  loadDataRR('https://royalroadl.com/fiction/16545/brimstone-fantasy','BF');
   loadDataAO3('http://archiveofourown.org/works/11478249/chapters/25740126','WTC');
   //updateDateField('lastTime',getDateTime());
 }
